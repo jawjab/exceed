@@ -1,0 +1,357 @@
+
+select  {
+    font-size: 30px;
+    position: fixed;
+    right: 13%;
+    top: 47%;
+    outline: 0;
+    overflow: hidden;
+    height: 60px;
+    color: 	#2F4F4F;
+    border: #2c343c;
+    padding: 10px 6px 10px 20px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 20px;
+    background-color: lightgray;
+    opacity: 0.85;
+}
+select option {border: 1px solid #FFFAF0; background: #FFFAF0;}
+
+
+/*.areaStatus{
+  width: 100%;
+  display: inline-flex;
+  flex-flow: row;
+}
+.circle{
+  width: 100%;
+}*/
+/*.can{
+  width: 100%;
+  /*background: red;*/
+/*}
+.water{
+  width: 100%;
+}
+.temp{
+  width: 100%;
+}*/
+/*#btn1{
+	padding-bottom: 10%;
+  border-radius: 50%;
+	border:5px solid #cfdcec;
+  overflow:hidden;
+  background: #4679BD;
+  box-shadow: 0 0 3px gray;
+}
+#btn2{
+	padding-bottom: 20%;
+  border-radius: 50%;
+	border:5px solid #cfdcec;
+  overflow:hidden;
+  background: #4679BD;
+  box-shadow: 0 0 3px gray;
+}
+#btn3{
+	padding-bottom: 20%;
+  border-radius: 50%;
+	border:5px solid #cfdcec;
+  overflow:hidden;
+  background: #4679BD;
+  box-shadow: 0 0 3px gray;
+}*/
+.b1 {
+	width:30%;
+}
+.b1-cir{
+  margin: 0 auto;
+	width: 70%;
+	height:0;
+	padding-bottom: 70%;
+  border-radius: 50%;
+	border:5px solid #cfdcec;
+  overflow:hidden;
+  background: #4679BD;
+  box-shadow: 0 0 3px gray;
+  opacity: 0.8;
+}
+.b1-cir:hover{
+	background:#A9A9A9;
+}
+
+
+#suggestingBox{
+  position: fixed;
+  left: 29%;
+  top: 45%;
+    /*margin: 0 auto;*/
+    width: 600px;
+    height: 420px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 26px;
+    opacity: 0.85;
+    box-shadow: 5px 5px 10px 5px rgba(50,50,50,.4);
+}
+/*.b2 {
+	width:25%;
+}
+.b2-cir {
+	width: 100%;
+	height:0;
+	padding-bottom: 100%;
+    border-radius: 50%;
+	border:10px solid #cfdcec;
+    overflow:hidden;
+
+    background: #4679BD;
+    box-shadow: 0 0 3px gray;
+}
+.b2-cir:hover{
+	background:#30588e;
+}
+
+.b3 {
+	width:25%;
+}
+.b3-cir {
+	width: 100%;
+	height:0;
+	padding-bottom: 100%;
+  border-radius: 50%;
+	border:10px solid #cfdcec;
+  overflow:hidden;
+  background: #4679BD;
+  box-shadow: 0 0 3px gray;
+}
+.b3-cir:hover{
+	background:#30588e;
+}*/
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('./video/flower.mp4') center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
+
+.noSun {
+  background-image: url("pic/sun.png") !important;
+  background-color: #DC143C;
+}
+.sun{
+  background-image: url("pic/sun.png");
+  background-color: #1E90FF;
+}
+.lessWater{
+  background-color: #DC143C !important;
+}
+.water{
+  background-image: url("pic/droppingWater.png");
+  background-color: #1E90FF;
+}
+.highTemp{
+background-color: #DC143C !important;
+}
+.temp{
+  background-image: url("pic/thermo.png");
+  background-color: #1E90FF;
+}
+.newBg{
+  background: url('./video/trim-ver.mp4') center center / cover no-repeat;
+}
+.gear {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+}
+#ex1Slider .slider-selection {
+	background: blue;
+}
+#sugText{
+    position: fixed;
+    left: 29%;
+    top: 57%;
+    padding: 20px;
+}
+
+
+
+
+/* Animation properties */
+.star {
+  animation: star 10s ease-out infinite;
+}
+.wars {
+  animation: wars 10s ease-out infinite;
+}
+.byline span {
+  animation: spin-letters 10s linear infinite;
+}
+.byline {
+  animation: move-byline 10s linear infinite;
+}
+
+/* Keyframes */
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes spin-letters {
+  0%, 10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70%, 86% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+/* Make the 3D work on the container */
+.starwars-demo {
+  perspective: 800px;
+  transform-style: preserve3d;
+}
+
+/* General styles and layout */
+body {
+  background: #000 url(//cssanimation.rocks/demo/starwars/images/bg.jpg);
+}
+
+.starwars-demo {
+  height: 17em;
+  left: 20%;
+  position: absolute;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  width: 34em;
+}
+
+.byline span {
+  display: inline-block;
+}
+
+img {
+  width: 70%;
+}
+
+.star, .wars, .byline {
+  position: absolute;
+}
+
+.star {
+  top: -0.75em;
+}
+
+.wars {
+  bottom: -0.5em;
+}
+
+.byline {
+  color: #fff;
+  font-family: "ITC Serif Gothic", Lato;
+  font-size: 1.25em;
+  left: 15%;
+  letter-spacing: 0.4em;
+  right: -2em;
+  text-align: center;
+  text-transform: uppercase;
+  top: 29%;
+}
+
+/*** Media queries for adjusting to different screen sizes ***/
+
+@media only screen and (max-width: 600px) {
+  .starwars-demo {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .starwars-demo {
+    font-size: 7px;
+  }
+}

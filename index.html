@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/index.css">
+    <script src="tree.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://use.fontawesome.com/daccedf0d7.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/bootstrap-slider.js"></script>
+    <link rel="stylesheet" href="/bootstrap-slider.css">
+    <script>
+        var tree = "Flower";
+    </script>
+</head>
+
+<body class="bg">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="b1-cir sun" id="sun"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="b1-cir water" id="water"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="b1-cir temp" id="temp"></div>
+        </div>
+    </div>
+    <div class="fullscreen-bg" id="divVideo">
+        <video loop muted autoplay poster="video/cactus.mp4" class="fullscreen-bg__video">
+            <source src="video/flower.mp4" type="video/mp4" id="srcVideo">
+        </video>
+    </div>
+    <!-- <div class="row"> -->
+    <div id="suggestingBox"><font size="7">Suggestion</font></div>
+    <!-- </div> -->
+    <div id="sugText"></div>
+    <div class="gear">
+        <a style="color : #8a8a8a" data-toggle="modal" data-target="#myModal">
+            <i id="setting" class="fa fa-spin fa-5x fa-cog" aria-hidden="true"></i>
+        </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-color: rgba(48, 134, 162, 0.43);
+                                                  color: white;
+                                                  font-size: initial;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="font-size: x-large">Setting</h4>
+                </div>
+                <div class="modal-body">
+                    <p> Select day for water plant</p>
+                    <form action="demo_form.asp" method="get">
+                        <span><input type="checkbox" name="day" value="monday" id="monday"> Monday</span>
+                        <span><input type="checkbox" name="day" value="tuesday" id="tuesday"> Tuesday</span>
+                        <span><input type="checkbox" name="day" value="wednesday" id="wednesday"> Wednesday</span>
+                        <p></p>
+                        <span><input type="checkbox" name="day" value="thusday" id="thursday"> Thusday</span>
+                        <span><input type="checkbox" name="day" value="friday" id="friday"> Friday</span>
+                        <span><input type="checkbox" name="day" value="saturday" id="saturday"> Saturday</span>
+                        <span><input type="checkbox" name="day" value="sunday" id="sunday"> Sunday</span>
+                    </form>
+                    <p></p>
+                    <p> Select water volumn</p>
+                    <input id="ex8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data -slider-value="14" style="width: 100%;" />
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" type="submit" value="Submit" id="okBTN">OK</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" type="submit" value="Submit">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div class="starwars-demo">
+            <img src="pic/name.png" alt="Star" class="star">
+            <!-- <img src="//cssanimation.rocks/demo/starwars/images/wars.svg" alt="Wars" class="wars"> -->
+            <!-- <h2 class="byline" id="byline">ICT : PLANT CARE</h2> -->
+        </div>
+    </div>
+
+    <input type="hidden" id="typetree"></input>
+    <select id="thelist">
+        <option value="Flower">Flower</option>
+        <option value="Cactus">Cactus</option>
+        <option value="Normal">Normal Tree</option>
+    </select>
+
+    <script type="text/javascript">
+        var sendOut = "B:";
+        var type = "";
+
+        //var tree = "Flower";
+
+        $("#thelist").change(function() {
+            tree = $("#thelist").val();
+            var videoName = "";
+            if (tree == "Flower") {
+                type += "1:";
+                videoName = "video/flower.mp4"
+                $("#srcVideo").attr('src', videoName);
+            } else if (tree == "Cactus") {
+                type += "2:"
+                videoName = "video/trim-ver.mp4"
+                $("#srcVideo").attr('src', videoName);
+            } else {
+                type += "3:"
+                videoName = "video/plant1.mp4"
+                $("#srcVideo").attr('src', videoName);
+            }
+            $("#divVideo video")[0].load();
+            findStatus(tree, 25, 1000);
+        });
+
+        $("#ex8").slider({
+            tooltip: 'always'
+        });
+        var day = "";
+        $('#monday').click(function() {
+            console.log('check');
+            day += "1,";
+        });
+        $('#tuesday').click(function() {
+            day += "2,";
+        });
+        $('#wednesday').click(function() {
+            day += "3,";
+        });
+        $('#thursday').click(function() {
+            day += "4,";
+        });
+        $('#friday').click(function() {
+            day += "5,";
+        });
+        $('#saturday').click(function() {
+            day += "6,";
+        });
+        $('#sunday').click(function() {
+            day += "7,";
+        });
+        $('#okBTN').click(function() {
+            sendOut += "" + type + day + ":" + $('#ex8').val();
+            console.log(sendOut);
+            $.ajax({
+                    url: 'http://10.32.176.4/X_E_XX2/' + sendOut + '/set'
+                })
+                .done(function(data) {
+                    console.log(data);
+                    sendOut = "B:"
+                })
+        });
+        console.log($('#ex8').val());
+        console.log('asdfg');
+
+        console.log('asdfg');
+        var recieveCan = 0;
+        var recieveWater = 0;
+        var recieveTemp = 0;
+        setInterval(function() {
+            $.ajax({
+                    url: 'http://10.32.176.4/X_E_XX2'
+                })
+                .done(function(data) {
+                    console.log(data);
+                    if (recieveCan == '0') {
+                        $('.sun').addClass('noSun');
+                    } else {
+                        $('#sun').removeClass('noSun');
+                    }
+                    if (recieveWater == '0') {
+                        $('.temp').addClass('highTemp');
+                    } else {
+                        $('#water').removeClass('lessWater');
+                    }
+                    if (recieveTemp == '0') {
+                        $('.water').addClass('lessWater');
+                    } else {
+                        $('#temp').removeClass('highTemp');
+                    }
+                })
+        }, 500);
+    </script>
+    <script>
+        var byline = document.getElementById('byline'); // Find the H2
+        bylineText = byline.innerHTML; // Get the content of the H2
+        bylineArr = bylineText.split(''); // Split content into array
+        byline.innerHTML = ''; // Empty current content
+
+        var span; // Create variables to create elements
+        var letter;
+
+        for (i = 0; i < bylineArr.length; i++) { // Loop for every letter
+            span = document.createElement("span"); // Create a <span> element
+            letter = document.createTextNode(bylineArr[i]); // Create the letter
+            if (bylineArr[i] == ' ') { // If the letter is a space...
+                byline.appendChild(letter); // ...Add the space without a span
+            } else {
+                span.appendChild(letter); // Add the letter to the span
+                byline.appendChild(span); // Add the span to the h2
+            }
+        }
+    </script>
+</body>
+
+</html>
